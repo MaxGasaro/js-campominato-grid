@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
 /*header*/
 
 header {
@@ -14,11 +19,13 @@ header .logo img {
     width: 40px;
     height: 40px;
     vertical-align: middle;
+    margin-left: 20px;
 }
 
 header .logo span {
     font-size: 30px;
     vertical-align: middle;
+    line-height: 70px;
 }
 
 header::after {
@@ -33,12 +40,14 @@ header::after {
 
 .selettore-difficoltà {
     float: right;
+    line-height: 70px;
+    margin: 0 20px;
 }
 
 /*main*/
 
 main {
-    height: calc(100vh - 90px);
+    height: calc(100vh - 120px);
     background-color: aquamarine;
     display: flex;
     justify-content: center;
@@ -51,12 +60,14 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 #gioco {
     height: 100%;
     width: 100%;
+    text-align: center;
+    font-size: 2rem;
 }
 
 #gioco::after {
@@ -84,8 +95,12 @@ main {
 /*footer*/
 
 footer {
-    height: 20px;
+    height: 50px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+footer a {
+    padding-left: 5px;
 }

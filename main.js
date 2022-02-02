@@ -65,28 +65,42 @@ function play() {
         
         if (bombe.includes(cell)) {
             
-            this.classList.add('bomb');
+            terminaGioco(tentativi, 'Hai perso dopo aver sminato ' + tentativi.length + ' celle');
+            //this.classList.add('bomb');
             
         } else {
             
             tentativi.push(cell);
             
         }
+
+        if (tentativi.length >= (numeroCelle - NUMERO_BOMBE)) {
+
+            terminaGioco(tentativi, 'Hai vinto!');
+
+        }
         
         this.removeEventListener('click', handleCellClick);
         console.log('al momento hai cliccato su: ' + tentativi);
     }
 
-    function terminaGioco() {
+    function terminaGioco(arrayDiTentativi, messaggio) {
         const quadrati = document.getElementsByClassName('box');
 
         for (let i=0; i<quadrati.length; i++) {
             if(bombe.includes(parseInt(quadrati[i].innerText))) {
                 quadrati[i].classList.add('bomb');
             }
+
             // qua dovrei rimuovere ascoltare di eventi su quadrati[i]
-            //e stampo la lunghezza dei tentativi
+            // così che una volta trovata una bomba non posso più cliccare su altre caselle
+            quadrati[i].removeEventListener('click', handleCellClick);
+
         }
+
+        //e stampo la lunghezza dei tentativi
+        alert(messaggio);
+
     }
 
     function generaBombe(numeroBombe, numeroCelle) {
@@ -105,8 +119,9 @@ function play() {
 
         }
 
-        return bombeGenerate;
+        console.log(bombeGenerate);
 
+        return bombeGenerate;
     }
 
 }
