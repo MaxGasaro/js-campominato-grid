@@ -67,8 +67,9 @@ main {
 
 .box {
     float: left;
-    /*width: calc(100% / 8);*/
-    /*height: calc(100% / 8);*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid black;
 }
 

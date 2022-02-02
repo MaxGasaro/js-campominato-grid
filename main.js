@@ -60,20 +60,20 @@ function play() {
     function handleCellClick() {
         this.classList.add('clicked');
         //alert(this.innerText);
-        this.removeEventListener('click', handleCellClick);
-
+        
         const cell = parseInt(this.innerText);
-
+        
         if (bombe.includes(cell)) {
-
-            alert('sono su una bomba,fine del gioco');
-
+            
+            this.classList.add('bomb');
+            
         } else {
-
+            
             tentativi.push(cell);
-
+            
         }
-
+        
+        this.removeEventListener('click', handleCellClick);
         console.log('al momento hai cliccato su: ' + tentativi);
     }
 
