@@ -65,8 +65,8 @@ function play() {
         
         if (bombe.includes(cell)) {
             
-            terminaGioco(tentativi, 'Hai perso dopo aver sminato ' + tentativi.length + ' celle');
-            //this.classList.add('bomb');
+            //terminaGioco(tentativi, 'Hai perso dopo aver sminato ' + tentativi.length + ' celle');
+            this.classList.add('bomb');
             
         } else {
             
@@ -74,33 +74,15 @@ function play() {
             
         }
 
-        if (tentativi.length >= (numeroCelle - NUMERO_BOMBE)) {
+        // da aggiungere nel progetto finale
+        //if (tentativi.length >= (numeroCelle - NUMERO_BOMBE)) {
 
-            terminaGioco(tentativi, 'Hai vinto!');
+            //terminaGioco(tentativi, 'Hai vinto!');
 
-        }
+        //}
         
-        this.removeEventListener('click', handleCellClick);
-        console.log('al momento hai cliccato su: ' + tentativi);
-    }
-
-    function terminaGioco(arrayDiTentativi, messaggio) {
-        const quadrati = document.getElementsByClassName('box');
-
-        for (let i=0; i<quadrati.length; i++) {
-            if(bombe.includes(parseInt(quadrati[i].innerText))) {
-                quadrati[i].classList.add('bomb');
-            }
-
-            // qua dovrei rimuovere ascoltare di eventi su quadrati[i]
-            // così che una volta trovata una bomba non posso più cliccare su altre caselle
-            quadrati[i].removeEventListener('click', handleCellClick);
-
-        }
-
-        //e stampo la lunghezza dei tentativi
-        alert(messaggio);
-
+        //this.removeEventListener('click', handleCellClick);
+        //console.log('al momento hai cliccato su: ' + tentativi);
     }
 
     function generaBombe(numeroBombe, numeroCelle) {
